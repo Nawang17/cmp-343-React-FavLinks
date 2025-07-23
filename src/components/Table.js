@@ -25,7 +25,14 @@ const TableBody = ({ linkData, removeLink }) => {
             </a>
           </td>
           <td>
-            <button onClick={() => removeLink(index)}>Delete</button>
+            <button
+              style={{
+                backgroundColor: "red",
+              }}
+              onClick={() => removeLink(index)}
+            >
+              Delete
+            </button>
           </td>
         </tr>
       ))}
