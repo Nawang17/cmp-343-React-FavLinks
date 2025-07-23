@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const TableHeader = () => {
   // boilerplate table header functional component
@@ -10,8 +10,8 @@ const TableHeader = () => {
         <th>Remove</th>
       </tr>
     </thead>
-  )
-}
+  );
+};
 
 const TableBody = (props) => {
   // boilerplate table body functional component
@@ -27,17 +27,19 @@ const TableBody = (props) => {
           <button onClick={() => props.removeLink(index)}>Delete</button>
         </td>
       </tr>
-    )
-  })
+    );
+  });
 
-  return <tbody>{rows}</tbody>
-}
+  return <tbody>{rows}</tbody>;
+};
 
-const Table = (props) => {
-  {
-    /*TODO - return <table> component, TableHeader and TableBody  and pass props!*/
-    return <table></table>
-  }
-}
+const Table = ({ linkData, removeLink }) => {
+  return (
+    <table>
+      <TableHeader />
+      <TableBody linkData={linkData} removeLink={removeLink} />
+    </table>
+  );
+};
 
-export default Table
+export default Table;
