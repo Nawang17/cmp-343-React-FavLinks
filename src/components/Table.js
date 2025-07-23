@@ -13,24 +13,24 @@ const TableHeader = () => {
   );
 };
 
-const TableBody = (props) => {
-  // boilerplate table body functional component
-  // we use Array.map to create table rows from LinkData passed via props
-  const rows = props.linkData.map((row, index) => {
-    return (
-      <tr key={index}>
-        <td>{row.name}</td>
-        <td>
-          <a href={row.URL}>{row.URL}</a>
-        </td>
-        <td>
-          <button onClick={() => props.removeLink(index)}>Delete</button>
-        </td>
-      </tr>
-    );
-  });
-
-  return <tbody>{rows}</tbody>;
+const TableBody = ({ linkData, removeLink }) => {
+  return (
+    <tbody>
+      {linkData.map((link, index) => (
+        <tr key={index}>
+          <td>{link.name}</td>
+          <td>
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
+              {link.url}
+            </a>
+          </td>
+          <td>
+            <button onClick={() => removeLink(index)}>Delete</button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  );
 };
 
 const Table = ({ linkData, removeLink }) => {
